@@ -12,10 +12,16 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-        if (balance - amount < 0) {
-            System.out.println("You don't have enough!");
-        } else {
+        if (validWithdrawal(amount)) {
             balance -= amount;
+        }
+    }
+
+    public boolean validWithdrawal(int amount) {
+        if (balance - amount < 0) {
+            return false;
+        } else {
+            return true;
         }
     }
 }
